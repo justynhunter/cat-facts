@@ -10,6 +10,7 @@
 
 'use strict';
 const Alexa = require('alexa-sdk');
+const request = require('request');
 
 //=========================================================================================================================================
 //TODO: The items below this comment need your attention.
@@ -46,14 +47,16 @@ const handlers = {
         this.emit('GetNewFactIntent');
     },
     'GetNewFactIntent': function () {
-        const factArr = data;
-        const factIndex = Math.floor(Math.random() * factArr.length);
-        const randomFact = factArr[factIndex];
-        const speechOutput = GET_FACT_MESSAGE + randomFact;
-
-        this.response.cardRenderer(SKILL_NAME, randomFact);
-        this.response.speak(speechOutput);
-        this.emit(':responseReady');
+        const url = 'https://catfact.ninja/fact';
+        request.get(url, (error, response, body) => {
+            console.log('error: ', error);
+            console.log('statusCode: ', response && response.statusCode);
+            console.log('body', body);
+            
+           this.response.cardRenderer(SKILL_NAME, body.fact);
+           this.response.speak(GET_FACT_MESSAGE + body.fact);
+           this.emit(':responseReady');
+        });
     },
     'AMAZON.HelpIntent': function () {
         const speechOutput = HELP_MESSAGE;
