@@ -27,18 +27,6 @@ const HELP_REPROMPT = 'What can I help you with?';
 const STOP_MESSAGE = 'Goodbye!';
 
 //=========================================================================================================================================
-//TODO: Replace this data with your own.  You can find translations of this data at http://github.com/alexa/skill-sample-node-js-fact/data
-//=========================================================================================================================================
-const data = [
-    'Cats have been domesticated for around 4,000 years. While they were once valued for their hunting abilities, they are now valued for their companionship and loving behaviour.',
-    'While not well known, the collective nouns used for cats and kittens are a clowder of cats and a kindle of kittens.',
-    'Our domestic cats are known as little cats. They differ from large cats such as lions and tigers because they are naturally active at night and can purr.',
-    'Cats are now the most popular pet in the UK and in the US.',
-    'Cats have 30 teeth (dogs have 42) and most of us know how sharp they are!',
-    'Cats have a reflective layer in their eyes, known as the tapetum lucidum, which magnifies incoming light allowing them to see up to 6 times better than humans can in low light. Cats (as well as dogs) also have a ‘third eyelid’ called the nictitating membrane which is found on the inside corner of the eye which is an extra protective function of the eye.'
-];
-
-//=========================================================================================================================================
 //Editing anything below this line might break your skill.
 //=========================================================================================================================================
 
