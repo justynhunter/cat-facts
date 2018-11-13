@@ -49,13 +49,11 @@ const handlers = {
     'GetNewFactIntent': function () {
         const url = 'https://catfact.ninja/fact';
         request.get(url, (error, response, body) => {
-            console.log('error: ', error);
-            console.log('statusCode: ', response && response.statusCode);
-            console.log('body', body);
+          const data = JSON.parse(body);
             
-           this.response.cardRenderer(SKILL_NAME, body.fact);
-           this.response.speak(GET_FACT_MESSAGE + body.fact);
-           this.emit(':responseReady');
+          this.response.cardRenderer(SKILL_NAME, data.fact);
+          this.response.speak(GET_FACT_MESSAGE + data.fact);
+          this.emit(':responseReady');
         });
     },
     'AMAZON.HelpIntent': function () {
